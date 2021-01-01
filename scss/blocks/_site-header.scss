@@ -1,0 +1,76 @@
+.site-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  padding-left: 10px;
+  padding-right: 30px;
+  background-color: #fff;
+}
+.site-header__left-wrapper {
+  min-width: 230px;
+  display: flex;
+  align-items: center;
+}
+.site-header__menu {
+  display: block;
+}
+.site-header__logo {
+  display: block;
+  margin-left: 28px;
+}
+.site-header__medial {
+  display: flex;
+  align-items: center;
+}
+.site-header__form {
+  min-width: 830px;
+  display: flex;
+  justify-content: center;
+}
+.site-header__input {
+  min-width: 620px;
+  padding: 7px 13px;
+  font-size: 17px;
+  border: 1px solid #ccc;
+  box-shadow: inset;
+  outline: none;
+}
+
+.site-header__btn {
+  background: transparent;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+
+  &--menu {
+    padding: 10px;
+    border-radius: 50%;
+    outline: none;
+    transition: all 0.3s ease;
+  }
+
+  &--menu:active {
+    background-color: rgb(214, 212, 212);
+  }
+}
+
+
+
+.site-header__btn-search {
+  border: 1px solid #ccc;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.site-header__right-wrapper {
+  min-width: 250px;
+  justify-content: space-between;
+  display: flex;
+  align-items: center;
+}
+
+.site-header__video-img {
+  display: block;
+}

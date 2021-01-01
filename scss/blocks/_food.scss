@@ -1,0 +1,141 @@
+.food__main-title {
+  font-family: 'Mulish';
+  font-style: normal;
+  font-weight: bold;
+  font-size: 26px;
+  line-height: 33px;
+  color: #19202C;
+  margin-left: 20px;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.food__div {
+  margin-top: 49px;
+  margin-bottom: 30px;
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+}
+
+.food__channel {
+  margin: 0;
+  margin-left: 20px;
+  font-family: 'Mulish';
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 20px;
+  color: #C2C2C2;
+}
+
+.food__buttons {
+  margin-left: 400px;
+  align-items: center;
+}
+
+.food__subscribe {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 19px;
+  padding-right: 19px;
+  border: none;
+  background-color: red;
+  border-radius: 20px;
+  color: #ffffff;
+  font-family: 'Mulish';
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 20px;
+  text-align: center;
+}
+
+.food__subsciption {
+  margin: 0;
+  margin-left: 20px;
+  font-family: "Mulish";
+  font-style: normal;
+  font-weight: bold;
+  font-size: 26px;
+  line-height: 33px;
+  color: #19202C;
+}
+
+.food__list {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+  margin-top: 30px;
+  display: flex;
+}
+.food__item {
+  width: 250px;
+  position: relative;
+}
+
+.food__nav-link {
+  text-decoration: none;
+}
+
+.food__item:not(:first-child) {
+  margin-left: 40px;
+}
+
+.food__img {
+  width: 250px;
+  height: 150px;
+  border-radius: 14px;
+}
+
+.food__btn {
+  position: absolute;
+  top: 10px;
+  left: 210px;
+  border: none;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+}
+
+.food__span {
+  position: absolute;
+  padding: 0 9px;
+  color: #ffffff;
+  border-radius: 14px;
+  font-family: "Mulish";
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 18px;
+  right: 10px;
+  bottom: 60px;
+}
+.food__title {
+  margin-top: 0px;
+  margin-bottom: 4px;
+  color: #19202C;
+}
+
+.food__texts {
+  display: flex;
+  align-items: center;
+}
+
+.food__text {
+  margin: 0;
+  font-family: "Mulish";
+  font-style: normal;
+  font-weight: normal;
+  font-size: 13px;
+  line-height: 16px;
+  color: #C2C2C2;
+
+  &--day {
+    margin-left: 20px;
+  }
+
+  &--name {
+    margin-left: auto;
+  }
+}
