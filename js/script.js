@@ -23,11 +23,10 @@ var createElement = function (element, elementClass, text) {
   return newElement;
 };
 
-var counter = 0;
-
 var lists = [];
 var recommended = [];
 var food = [];
+var later = [];
 
 var elVideosItem = $_('.videos__item');
 var elVideosImg = $_('.videos__img');
@@ -62,6 +61,15 @@ var elFoodTextDay = $_('.food__text--day');
 var elFoodTextName = $_('.food__text--name');
 var elFoodList = $_('.food__list')
 
+var elMenuToggler = $_('.site-header__btn');
+var elText = $_('.left-wrapper__list');
+
+var elWatchList = $_('.watch__list');
+
+elMenuToggler.addEventListener('click', function(){
+  elText.classList.toggle('left-wrapper__nav-open');
+})
+
 var elVideosTemplate = $_('.template__item').content;
 var elVideosItems = elVideosTemplate.cloneNode(true);
 var elImg = $_('videos__img', elVideosItems)
@@ -69,8 +77,7 @@ var elImg = $_('videos__img', elVideosItems)
 
 
   lists.push({
-    id: ++counter,
-    video: 'https://picsum.photos/250/150?random=1',
+    video: 'img/history.png',
     watch: 'L',
     minutes: '2:15',
     title: 'A Brief History Of Creation',
@@ -79,8 +86,7 @@ var elImg = $_('videos__img', elVideosItems)
     name: 'Dollie Blair'
   },
   {
-    id: ++counter,
-    video: 'https://picsum.photos/250/150?random=2',
+    video: 'img/royal.png',
     watch: 'L',
     minutes: '8:00',
     title: 'Selecting The Right Hotel',
@@ -89,8 +95,7 @@ var elImg = $_('videos__img', elVideosItems)
     name: 'Dollie Blair'
   },
   {
-    id: ++counter,
-    video: 'https://picsum.photos/250/150?random=3',
+    video: 'img/asteroids.png',
     watch: 'L',
     minutes: '5:32',
     title: 'Asteroids',
@@ -99,8 +104,7 @@ var elImg = $_('videos__img', elVideosItems)
     name: 'Dollie Blair'
   },
   {
-    id: ++counter,
-    video: 'https://picsum.photos/250/150?random=4',
+    video: 'img/telescopes.png',
     watch: 'L',
     minutes: '5:32',
     title: 'Telescopes 101',
@@ -109,8 +113,7 @@ var elImg = $_('videos__img', elVideosItems)
     name: 'Dollie Blair'
   },
   {
-    id: ++counter,
-    video: 'https://picsum.photos/250/150?random=5',
+    video: 'img/medical.png',
     watch: 'L',
     minutes: '5:32',
     title: 'Medical Care Is Just',
@@ -119,8 +122,7 @@ var elImg = $_('videos__img', elVideosItems)
     name: 'Dollie Blair'
   },
   {
-    id: ++counter,
-    video: 'https://picsum.photos/250/150?random=6',
+    video: 'img/moon-gazing.png',
     watch: 'L',
     minutes: '5:32',
     title: 'Moon Gazing',
@@ -130,9 +132,22 @@ var elImg = $_('videos__img', elVideosItems)
   }
   );
 
-  console.log(lists)
+  var displayVideos = function () {
 
+    var elVideosFragment = document.createDocumentFragment();
 
+    lists.forEach(function (item, index){
+      elVideosFragment.appendChild(createVideoElement(item, index));
+    });
+
+    elVidesList.appendChild(elVideosFragment);
+  }
+
+  elVidesList.addEventListener('click', function(evt){
+    if(evt.target.matches('.watch__list')) {
+      console.log(later.slice(Number(evt.target.dataset.id), index))
+    }
+  })
 
 var createVideoElement = function (video, index){
   var elVideosItems = elVideosTemplate.cloneNode(true);
@@ -140,7 +155,7 @@ var createVideoElement = function (video, index){
 
   $_('.videos__img', elVideosItems).src = video.video;
   $_('.videos__btn', elVideosItems).textContent = video.watch;
-  $_('.videos__btn', elVideosItems).dataset.contactId = video.index
+  $_('.videos__btn', elVideosItems).dataset.contactId = index;
   $_('.videos__span', elVideosItems).textContent = video.minutes;
   $_('.videos__title', elVideosItems).textContent = video.title;
   $_('.videos__text--viewers', elVideosItems).textContent = video.viewers;
@@ -151,22 +166,13 @@ var createVideoElement = function (video, index){
   return elVideosItems;
 }
 
-var displayVideos = function () {
 
-  var elVideosFragment = document.createDocumentFragment();
-
-  lists.forEach(function (item, index){
-    elVideosFragment.appendChild(createVideoElement(item));
-  });
-
-  elVidesList.appendChild(elVideosFragment);
-}
 
 displayVideos();
 
-
-
-
+////////////////////////////
+//////////////////////////// recommended
+////////////////////////////
 
 
 var elRecommendedTemplate = $_('.template__item2').content;
@@ -174,8 +180,7 @@ var elRecommendedItems = elRecommendedTemplate.cloneNode(true);
 var elImg2 = $_('Recommended__img', elRecommendedItems);
 
 recommended.push({
-  id: ++counter,
-  img: 'https://picsum.photos/540/250?random=7',
+  img: 'img/dude.jpg',
   watch: 'L',
   minutes: '3:40',
   title: 'Dude You Re Getting A Telescope',
@@ -184,8 +189,7 @@ recommended.push({
   name: 'Gussie French'
 },
 {
-  id: ++counter,
-  img: 'https://picsum.photos/540/250?random=8',
+  img: 'img/edward.jpg',
   watch: 'L',
   minutes: '8:00',
   title: 'Moon Gazing',
@@ -194,8 +198,7 @@ recommended.push({
   name: 'Dollie Blair'
 },
 {
-  id: ++counter,
-  img: 'https://picsum.photos/540/250?random=9',
+  img: 'img/moon.jpg',
   watch: 'L',
   minutes: '5:32',
   title: 'Moon Gazing',
@@ -205,13 +208,24 @@ recommended.push({
 }
 );
 
+var displayRecommends = function () {
+
+  var elRecommendedFragment = document.createDocumentFragment();
+
+  recommended.forEach(function (recommend, index){
+    elRecommendedFragment.appendChild(createRecommendElement(recommend, index));
+  });
+
+  elRecommendedList.appendChild(elRecommendedFragment);
+}
+
 var createRecommendElement = function (recommend, index){
   var elRecommendedItems = elRecommendedTemplate.cloneNode(true);
 
 
   $_('.recommended__img', elRecommendedItems).src = recommend.img;
   $_('.recommended__btn', elRecommendedItems).textContent = recommend.watch;
-  $_('.recommended__btn', elRecommendedItems).dataset.contactId = recommend.index
+  $_('.recommended__btn', elRecommendedItems).dataset.contactId = index;
   $_('.recommended__span', elRecommendedItems).textContent = recommend.minutes;
   $_('.recommended__title', elRecommendedItems).textContent = recommend.title;
   $_('.recommended__text--viewers', elRecommendedItems).textContent = recommend.viewers;
@@ -222,16 +236,7 @@ var createRecommendElement = function (recommend, index){
   return elRecommendedItems;
 }
 
-var displayRecommends = function () {
 
-  var elRecommendedFragment = document.createDocumentFragment();
-
-  recommended.forEach(function (recommend, index){
-    elRecommendedFragment.appendChild(createRecommendElement(recommend));
-  });
-
-  elRecommendedList.appendChild(elRecommendedFragment);
-}
 
 displayRecommends();
 
@@ -246,8 +251,8 @@ var elImg3 = $_('food__img', elFoodItems)
 
 
   food.push({
-    id: ++counter,
-    video: 'https://picsum.photos/250/150?random=1',
+
+    video: 'img/astrology.jpg',
     watch: 'L',
     minutes: '2:15',
     title: 'A Brief History Of Creation',
@@ -256,8 +261,8 @@ var elImg3 = $_('food__img', elFoodItems)
     name: 'Dollie Blair'
   },
   {
-    id: ++counter,
-    video: 'https://picsum.photos/250/150?random=2',
+
+    video: 'img/advertising.jpg',
     watch: 'L',
     minutes: '8:00',
     title: 'Selecting The Right Hotel',
@@ -266,8 +271,8 @@ var elImg3 = $_('food__img', elFoodItems)
     name: 'Dollie Blair'
   },
   {
-    id: ++counter,
-    video: 'https://picsum.photos/250/150?random=3',
+
+    video: 'img/radio.jpg',
     watch: 'L',
     minutes: '5:32',
     title: 'Asteroids',
@@ -276,8 +281,8 @@ var elImg3 = $_('food__img', elFoodItems)
     name: 'Dollie Blair'
   },
   {
-    id: ++counter,
-    video: 'https://picsum.photos/250/150?random=4',
+
+    video: 'img/apple.jpg',
     watch: 'L',
     minutes: '5:32',
     title: 'Telescopes 101',
@@ -286,8 +291,8 @@ var elImg3 = $_('food__img', elFoodItems)
     name: 'Dollie Blair'
   },
   {
-    id: ++counter,
-    video: 'https://picsum.photos/250/150?random=5',
+
+    video: 'img/baby.jpg',
     watch: 'L',
     minutes: '5:32',
     title: 'Medical Care Is Just',
@@ -296,8 +301,8 @@ var elImg3 = $_('food__img', elFoodItems)
     name: 'Dollie Blair'
   },
   {
-    id: ++counter,
-    video: 'https://picsum.photos/250/150?random=6',
+
+    video: 'img/tarvuz.jpg',
     watch: 'L',
     minutes: '5:32',
     title: 'Moon Gazing',
@@ -307,9 +312,16 @@ var elImg3 = $_('food__img', elFoodItems)
   }
   );
 
-  console.log(food)
+  var displayFood = function () {
 
+    var elFoodFragment = document.createDocumentFragment();
 
+    food.forEach(function (item, index){
+      elFoodFragment.appendChild(createFoodElement(item, index));
+    });
+
+    elFoodList.appendChild(elFoodFragment);
+  }
 
 var createFoodElement = function (drink, index){
   var elFoodItems = elFoodTemplate.cloneNode(true);
@@ -317,26 +329,29 @@ var createFoodElement = function (drink, index){
 
   $_('.food__img', elFoodItems).src = drink.video;
   $_('.food__btn', elFoodItems).textContent = drink.watch;
-  $_('.food__btn', elFoodItems).dataset.contactId = drink.index
+  $_('.food__btn', elFoodItems).dataset.contactId = index;
   $_('.food__span', elFoodItems).textContent = drink.minutes;
   $_('.food__title', elFoodItems).textContent = drink.title;
   $_('.food__text--viewers', elFoodItems).textContent = drink.viewers;
   $_('.food__text--day', elFoodItems).textContent = drink.day;
   $_('.food__text--name', elFoodItems).textContent = drink.name;
-  // elBtn.dataset.contactId = elVideosItem;
 
   return elFoodItems;
 }
 
-var displayFood = function () {
 
-  var elFoodFragment = document.createDocumentFragment();
-
-  food.forEach(function (item, index){
-    elFoodFragment.appendChild(createFoodElement(item));
-  });
-
-  elFoodList.appendChild(elFoodFragment);
-}
 
 displayFood();
+
+
+// elVidesList.addEventListener(`click`, function(evt) {
+//   if (evt.target.matches(`.videos__btn`)) {
+//     var elId = evt.target.dataset.contactId;
+//     lists.forEach(function (intro, index){
+//       if (intro.contactId === elId) {
+//         elWatchList.push(intro)
+//         watchList()
+//       }
+//     })
+//   }
+// })

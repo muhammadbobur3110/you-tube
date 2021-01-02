@@ -31,7 +31,7 @@
       </button>
 
       <button class="site-header__btn site-header__btn--shape" type="button">
-        <img class="site-header__video-img" src="img/Combined Shape.svg" alt="combined shape" width="21" height="21">
+        <img class="site-header__video-img" src="img/Combined-Shape.svg" alt="combined shape" width="21" height="21">
       </button>
 
       <button class="site-header__btn site-header__btn--notification" type="button">
@@ -133,7 +133,7 @@
 
         <li class="left-wrapper__item">
 
-          <h3 >Subscriptions</h3>
+          <h3 class="left-wrapper__subscription">Subscriptions</h3>
           <a class="left-wrapper__links--home" href="#">
             <img src="img/Oval.jpg" alt="Followers" width="26" height="26">
             <p class="left-wrapper__nav-text">Gussie Singleton</p>
@@ -169,59 +169,65 @@
 
     <div class="container">
       <section class="videos">
-        <div class="videos__div">
-          <a href="#" class="videos__href">
-            <img src="img/dollie.jpg" alt="follower" width="50" height="50">
-            <h2 class="videos__subsciption">Dollie Blair</h2>
-          </a>
+        <div class="videos__big-div">
+          <div class="videos__div">
+            <a href="#" class="videos__href">
+              <img src="img/dollie.jpg" alt="follower" width="50" height="50">
+              <h2 class="videos__subsciption">Dollie Blair</h2>
+            </a>
 
-          <div class="videos__buttons">
-            <button class="videos__slide-btn" type="button">
-              <img src="img/Left.svg" alt="left arrow" width="28" height="28">
-            </button>
-            <button class="videos__slide-btn" type="button">
-              <img src="img/Right.svg" alt="left arrow" width="28" height="28">
-            </button>
+            <div class="videos__buttons">
+              <button class="videos__slide-btn" type="button">
+                <img src="img/Left.svg" alt="left arrow" width="28" height="28">
+              </button>
+              <button class="videos__slide-btn" type="button">
+                <img src="img/Right.svg" alt="left arrow" width="28" height="28">
+              </button>
+            </div>
           </div>
-        </div>
 
-        <ul class="videos__list">
+          <ul class="videos__list">
 
-        </ul>
-        <div class="recommended__div">
-        <h3 class="recommended__main-title">Recommended</h3>
+          </ul>
+          <div class="recommended__div">
+          <h3 class="recommended__main-title">Recommended</h3>
 
-        <div class="recommended__buttons">
+          <div class="recommended__buttons">
+              <button class="recommended__slide-btn" type="button">
+                <img src="img/Left.svg" alt="left arrow" width="28" height="28">
+              </button>
+              <button class="recommended__slide-btn" type="button">
+                <img src="img/Right.svg" alt="left arrow" width="28" height="28">
+              </button>
+            </div>
+          </div>
+
+          <ul class="recommended__list">
+
+          </ul>
+
+          <div class="food__div">
+            <img src="img/food.jpg" alt="food" width="50" height="50">
+            <h3 class="food__main-title">Food & Drink</h3>
+            <p class="food__channel">Recommended channel for you</p>
+            <div class="food__buttons">
+            <button class="food__subscribe" type="button">Subscribe 2.3m</button>
             <button class="recommended__slide-btn" type="button">
               <img src="img/Left.svg" alt="left arrow" width="28" height="28">
             </button>
             <button class="recommended__slide-btn" type="button">
               <img src="img/Right.svg" alt="left arrow" width="28" height="28">
             </button>
+            </div>
           </div>
+          <ul class="food__list">
+
+          </ul>
+
+          <ul class="watch__list">
+            <h3>Watch Later</h3>
+          </ul>
         </div>
-
-        <ul class="recommended__list">
-
-        </ul>
-
-        <div class="food__div">
-          <img src="img/food.jpg" alt="food" width="50" height="50">
-          <h3 class="food__main-title">Food & Drink</h3>
-          <p class="food__channel">Recommended channel for you</p>
-          <div class="food__buttons">
-          <button class="food__subscribe" type="button">Subscribe 2.3m</button>
-          <button class="recommended__slide-btn" type="button">
-            <img src="img/Left.svg" alt="left arrow" width="28" height="28">
-          </button>
-          <button class="recommended__slide-btn" type="button">
-            <img src="img/Right.svg" alt="left arrow" width="28" height="28">
-          </button>
-          </div>
-        </div>
-        <ul class="food__list">
-
-        </ul>
       </section>
     </div>
   </main>
@@ -230,7 +236,9 @@
     <li class="videos__item">
       <a class="videos__nav-link" href="#">
         <img class="videos__img" src="" alt="pictures" width="250" height="150">
-        <button type="button" class="videos__btn"></button>
+        <button type="button" class="videos__btn">
+          <img src="" alt="">
+        </button>
         <span class="videos__span">2:15</span>
         <h3 class="videos__title">A Brief History Of Creation</h3>
         <div class="videos__texts">

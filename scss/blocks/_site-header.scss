@@ -1,12 +1,17 @@
 .site-header {
+  position: fixed;
+  z-index: 50;
+  width: 100%;
   display: flex;
+  left: 0;
+  top: 0;
   align-items: center;
   justify-content: space-between;
   padding-top: 20px;
   padding-bottom: 20px;
   padding-left: 10px;
   padding-right: 30px;
-  background-color: #fff;
+  background-color: white;
 }
 .site-header__left-wrapper {
   min-width: 230px;
